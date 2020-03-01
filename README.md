@@ -1,4 +1,4 @@
-# angular-graphql-template
+# Angular + graphql template
 
 ## Prerequisites
 - have [node](https://nodejs.org/en/) installed (tested on v12)
@@ -8,6 +8,8 @@
 - navigate to `api/` in your terminal of choice
 - install dependencies by running `npm i` (takes a while)
 - run the api (restarts on code changes): `npm start`
+
+(for the request types, see `api/insomnia/`)
 
 ## Starting the web interface
 - install the cli: `npm i -g @angular/cli`
