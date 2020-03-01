@@ -1,4 +1,4 @@
-# angular-graphql-template
+# Angular + graphql template
 
 ## Prerequisites
 - have [node](https://nodejs.org/en/) installed (tested on v12)
