@@ -1,0 +1,32 @@
+type ToDo {
+    _id: String
+    listId: String
+    title: String
+    done: Boolean
+}
+
+type List {
+    _id: String
+    name: String
+    toDos: [ToDo]
+}
+
+input ListInput {
+    _id: String
+    name: String!
+}
+
+type ListStatusReturn {
+    status: String
+    list: List
+}
+
+type Query {
+    lists: [List]
+}
+
+type Mutation {
+    createList(newList: ListInput): ListStatusReturn
+    updateList(_id: String, updatedList: ListInput): ListStatusReturn
+    deleteList(_id: String): ListStatusReturn
+}

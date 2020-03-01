@@ -1,0 +1,30 @@
+{
+    "name": "graphql-server-example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "babel-node": "babel-node",
+        "start": "nodemon --exec babel-node server.js",
+        "prod": "pm2 start server.js --name to-do-lists-api --interpreter ./node_modules/.bin/babel-node"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "apollo-server": "^2.10.1",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "graphql": "^14.6.0",
+        "graphql-resolvers": "^0.4.2",
+        "graphql-server-express": "^1.4.1",
+        "graphql-tools": "^4.0.7",
+        "mongoose": "^5.9.2",
+        "node-jsencrypt": "^1.0.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0"
+    }
+}

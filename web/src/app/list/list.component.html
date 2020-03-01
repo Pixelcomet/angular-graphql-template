@@ -1,0 +1,25 @@
+<mat-expansion-panel (opened)="listOpen = true" (closed)="listOpen = false">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{list.name}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field id="list-name">
+        <input matInput placeholder="List Name" value="Liste 1" [(ngModel)]="list.name" (ngModelChange)="updateList()">
+    </mat-form-field>
+
+    <mat-list>
+        <mat-list-item *ngFor="let toDo of list.toDos">
+            <app-to-do [toDo]="toDo"></app-to-do>
+        </mat-list-item>
+    </mat-list>
+
+
+
+    <mat-card-actions id="actions">
+        <button mat-button color="primary" (click)="newToDo()" style="margin-left: 4px;">Neues To Do</button>
+        <button mat-button color="warn" (click)="deleteList()">Liste löschen</button>
+    </mat-card-actions>
+
+</mat-expansion-panel>
