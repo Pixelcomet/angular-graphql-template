@@ -6,8 +6,11 @@ import { Injectable } from '@angular/core';
 export class UtilService {
     constructor() {}
 
-    /** removes the quotes from properties and gets rid of some properties, that are never needed in a modification */
-    // tslint:disable-next-line
+    /**
+     * @param {any} obj
+     *
+     * removes the quotes from properties and gets rid of some properties, that
+     * are never needed in a modification */
     toGraphql = obj =>
         JSON.stringify(obj)
             // remove the "" from every first in line element

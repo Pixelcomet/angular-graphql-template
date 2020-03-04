@@ -15,11 +15,19 @@ export class ListsService {
         private utilService: UtilService
     ) {}
 
+    /**
+     * @returns Promise
+     *
+     * retrieves all lists from the server
+     */
     async lists(): Promise<List[]> {
+        // this is how the returned object will look
         interface Data {
             lists: List[];
         }
 
+        // this is the query that will be sent to the server, specifying the
+        // responses structure
         const query = gql`
             {
                 lists {
@@ -34,17 +42,29 @@ export class ListsService {
             }
         `;
 
+        // send the request, wait for it to return data
         const resp = await this.apollo.watchQuery({ query: query }).result();
+        // parse data and create a usable object
         const data = resp.data as Data;
 
+        // return the lists
         return data.lists;
     }
 
+    /**
+     * @param  {List} newList
+     * @returns Promise
+     *
+     * creates a list
+     */
     async createList(newList: List): Promise<List> {
+        // this is how the returned object will look
         interface Data {
             createList: ListStatusReturn;
         }
 
+        // this is the mutation that will be sent to the server, specifying the
+        // responses structure
         const mutation = gql`
             mutation {
                 createList(newList: { name: "${newList.name}" }) {
@@ -57,13 +77,18 @@ export class ListsService {
             }
         `;
 
+        // send the request, wait for it to return data
         const resp = await this.apollo
             .mutate({ mutation: mutation })
             .toPromise();
+
+        // parse data and create a usable object
         const data = resp.data as Data;
 
+        // extract return value
         const statusReturn = data.createList;
 
+        // match the return status and display a status update to the user
         switch (statusReturn.status) {
             case 'done':
                 this.globalsService.snackBarEventEmitter.emit(
@@ -86,11 +111,20 @@ export class ListsService {
         }
     }
 
+    /**
+     * @param  {List} updatedList
+     * @returns Promise
+     *
+     * updates a list (push to server)
+     */
     async updateList(updatedList: List): Promise<List> {
+        // this is how the returned object will look
         interface Data {
             updateList: ListStatusReturn;
         }
 
+        // this is the mutation that will be sent to the server, specifying the
+        // responses structure
         const mutation = gql`
             mutation {
                 updateList(_id: "${updatedList._id}", updatedList: {name: "${updatedList.name}"}) {
@@ -103,13 +137,18 @@ export class ListsService {
             }
         `;
 
+        // send the request, wait for it to return data
         const resp = await this.apollo
             .mutate({ mutation: mutation })
             .toPromise();
+
+        // parse data and create a usable object
         const data = resp.data as Data;
 
+        // extract return value
         const statusReturn = data.updateList;
 
+        // match the return status and display a status update to the user
         switch (statusReturn.status) {
             case 'done':
                 // dont print anythign out, would be annoying
@@ -133,11 +172,20 @@ export class ListsService {
         }
     }
 
+    /**
+     * @param  {String} _id
+     * @returns Promise
+     *
+     * deletes a list
+     */
     async deleteList(_id: String): Promise<boolean> {
+        // this is how the returned object will look
         interface Data {
             deleteList: ListStatusReturn;
         }
 
+        // this is the mutation that will be sent to the server, specifying the
+        // responses structure
         const mutation = gql`
             mutation {
                 deleteList(_id: "${_id}") {
@@ -146,13 +194,18 @@ export class ListsService {
             }
         `;
 
+        // send the request, wait for it to return data
         const resp = await this.apollo
             .mutate({ mutation: mutation })
             .toPromise();
+
+        // parse data and create a usable object
         const data = resp.data as Data;
 
+        // extract return value
         const statusReturn = data.deleteList;
 
+        // match the return status and display a status update to the user
         switch (statusReturn.status) {
             case 'done':
                 this.globalsService.snackBarEventEmitter.emit(

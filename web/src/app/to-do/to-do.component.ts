@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ToDo } from '../interfaces/ToDo';
 import { ToDosService } from '../to-dos.service';
 import { GlobalsService } from '../globals.service';
@@ -8,23 +8,23 @@ import { GlobalsService } from '../globals.service';
     templateUrl: './to-do.component.html',
     styleUrls: ['./to-do.component.scss']
 })
-export class ToDoComponent implements OnInit {
+export class ToDoComponent {
+    /** input that catches arguments wrapped in [toDo]="object" inside the
+     * template code (html) */
     @Input() toDo: ToDo;
-
-    done: boolean = true;
-    disabled: boolean;
 
     constructor(
         private toDoService: ToDosService,
         private globalsService: GlobalsService
     ) {}
 
-    ngOnInit() {}
-
+    // pushes changes on the local to do to the server
     updateToDo() {
         this.toDoService.updateToDo(this.toDo);
     }
 
+    // deletes this to do, then instructs the lists component to update all to
+    // dos in all lists (pull from server)
     async deleteToDo() {
         await this.toDoService.deleteToDo(this.toDo._id);
         this.globalsService.updateToDosEmitter.emit();
