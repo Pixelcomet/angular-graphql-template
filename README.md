@@ -5,7 +5,7 @@ It will look like this:
 
 ## Prerequisites
 
--   have [node](https://nodejs.org/en/) installed (tested on v12)
+-   have [node](https://nodejs.org/en/) installed (tested on v12 & v13)
 -   have [mongodb](https://docs.mongodb.com/manual/installation/) up and running
 -   have nodemon installed globally `npm i -g nodemon`
 -   have the angular cli installed globally `npm i -g @angular/cli`
