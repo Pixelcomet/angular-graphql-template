@@ -3,6 +3,7 @@
 ## Prerequisites
 - have [node](https://nodejs.org/en/) installed (tested on v12)
 - have [mongodb](https://docs.mongodb.com/manual/installation/) up and running
+- to restart the api on code changes, install nodemon `npm i -g nodemon`
 
 ## Starting the API
 - navigate to `api/` in your terminal of choice
