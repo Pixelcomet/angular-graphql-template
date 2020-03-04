@@ -1,5 +1,7 @@
 # Angular + graphql template
 
+![preview.png](https://raw.githubusercontent.com/Pixelcomet/angular-graphql-template/master/preview.png)
+
 ## Prerequisites
 - have [node](https://nodejs.org/en/) installed (tested on v12)
 - have [mongodb](https://docs.mongodb.com/manual/installation/) up and running
