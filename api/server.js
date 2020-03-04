@@ -22,4 +22,5 @@ server.use(
     })
 );
 
+// start the server listen on the specified port
 server.listen(PORT, () => console.log(`GraphQL Server is now running on localhost:${PORT}`));
