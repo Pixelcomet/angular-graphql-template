@@ -30,7 +30,7 @@ It will look like this:
 **API:**  
 Start in `server.js` and find the referenced files, the comments will guide you. Example API calls can be seen in `api/insomnia/`, you can also install [insomnia](https://insomnia.rest) and import `api/insomnia/insomnia-workspace.json` to try the requests out for yourself.
 
-The `lists` and `to-dos` directories are what I call `resolver blocks`, they consist of
+The `lists/` and `to-dos/` directories are what I call `resolver blocks`, they consist of
 
 -   `connectors.js` containing the structure of the objects this block will read/write
 -   `schema.graphql` to define the types, queries, mutations, etc. used by graphql
