@@ -20,7 +20,7 @@
 
 
 ## Understanding this project
-**API:** Start in `server.js` and find the referenced files, the comments will guide you.  
+**API:** Start in `server.js` and find the referenced files, the comments will guide you. Example API calls can be seen in `api/insomnia/`, you can also install [insomnia](https://insomnia.rest) and import `api/insomnia/insomnia.json` to try the requests out for yourself.
 
 **Web interface**: Dtart in the `src/app/` directory, the non-default `.ts` files have comments, if have never seen an angular project, look [here](https://angular.io/start). You probably can't understand the code in this repo, if you have never built an angular app before.
 
