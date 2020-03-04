@@ -31,7 +31,6 @@ export const resolvers = {
         },
         updateList: async (_, { _id, updatedList }) => {
             let currentList = await List.findOne({ _id: _id });
-            let listWithNewName = await List.findOne({ name: updatedList.name });
 
             if (!currentList) {
                 return {
@@ -44,13 +43,6 @@ export const resolvers = {
                 return {
                     status: 'no_change',
                     list: currentList,
-                };
-            }
-
-            if (listWithNewName) {
-                return {
-                    status: 'name_in_use',
-                    list: null,
                 };
             }
 
