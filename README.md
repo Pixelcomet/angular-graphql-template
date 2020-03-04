@@ -32,6 +32,7 @@
 - to see running services `pm2 list`
 - to stop the service again `pm2 stop <id>` (replace `<id>` with the service id from the previous step)
 - edit the cors rules in `server.js` to allow requests from the web interface
+- you might also want to change the `DB_URL` constant in `globals.js` to use a remote mongodb instance
 
 ### Web interface
 - edit te `uri` constant in `src/app/graphql.module.ts` to point to your api endpoint on your server
