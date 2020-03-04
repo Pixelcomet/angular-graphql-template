@@ -1,5 +1,6 @@
 # Angular + graphql template
 
+It will look like this:
 ![preview.png](https://raw.githubusercontent.com/Pixelcomet/angular-graphql-template/master/preview.png)
 
 ## Prerequisites
