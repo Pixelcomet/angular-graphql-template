@@ -20,7 +20,15 @@
 
 
 ## Understanding this project
-**API:** Start in `server.js` and find the referenced files, the comments will guide you. Example API calls can be seen in `api/insomnia/`, you can also install [insomnia](https://insomnia.rest) and import `api/insomnia/insomnia.json` to try the requests out for yourself.
+**API:**   
+Start in `server.js` and find the referenced files, the comments will guide you. Example API calls can be seen in `api/insomnia/`, you can also install [insomnia](https://insomnia.rest) and import `api/insomnia/insomnia.json` to try the requests out for yourself.
+
+The `lists` and `to-dos` directories are what I call `resolver blocks`, they consist of
+- `connectors.js` containing the structure of the objects this block will read/write
+- `schema.graphql` to define the types, queries, mutations, etc. used by graphql
+- `resolvers.js` contains the logic behind the schema
+- `schema.js` combines schema and resolvers into an executable schema that can be accessed via the API
+
 
 **Web interface**: Dtart in the `src/app/` directory, the non-default `.ts` files have comments, if have never seen an angular project, look [here](https://angular.io/start). You probably can't understand the code in this repo, if you have never built an angular app before.
 
