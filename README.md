@@ -40,3 +40,8 @@
 - place the contents of the newly created `dist/website/` directory on your web root (`var/www/html/` on apache2)
 - don't forget to configure the server in a way, that redirects all requests to the interface to `index.html` since this file includes the scripts that do all the routing
 - there should be a `.htaccess` in `dist/`, it can be used to redirect on an apache2 server (for nginx google `nginx angular` 😅)
+
+## Frequent sources of errors
+**I copied/renamed the `lists`/`to-dos` directory to make my own schema an it will not work.**  
+- Edit the line with the `readFile()` call inside `schema.js` and change the path to the name of your new/renamed folder.
+- Also you might have forgotten to include the new schema in `global-schema.js`, use the other imports as your template and add the new schema to the `schemas` array in `mergeSchemas()`
