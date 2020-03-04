@@ -19,6 +19,12 @@
 - compile and serve: `ng serve` (may take a long time at first start)
 
 
+## Understanding this project
+**API:** Start in `server.js` and find the referenced files, the comments will guide you.  
+
+**Web interface**: Dtart in the `src/app/` directory, the non-default `.ts` files have comments, if have never seen an angular project, look [here](https://angular.io/start). You probably can't understand the code in this repo, if you have never built an angular app before.
+
+
 ## Production use
 ### API
 - nodemon is not suitable for production use, install pm2 globally `npm i -g nodemon`
