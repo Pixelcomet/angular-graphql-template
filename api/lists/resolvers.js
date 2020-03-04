@@ -46,7 +46,7 @@ export const resolvers = {
                 };
             }
 
-            if (await List.update({ _id: _id }, updatedList)) {
+            if (await List.updateOne({ _id: _id }, updatedList)) {
                 return {
                     status: 'done',
                     list: await List.findOne({ name: updatedList.name }),
@@ -60,7 +60,7 @@ export const resolvers = {
         },
         deleteList: async (_, { _id }) => {
             // no error here, no harm done if to-dos persist
-            await ToDo.remove({ listId: _id });
+            await ToDo.deleteOne({ listId: _id });
 
             if (await List.deleteOne({ _id: _id })) {
                 return {
