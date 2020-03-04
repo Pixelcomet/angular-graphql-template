@@ -30,15 +30,15 @@ export class ListComponent {
     }
 
     /**
-     * add a new to do to the list
+     * add a new to-do to the list
      */
     async newToDo() {
         await this.toDosService.createToDo(this.list._id, {
-            title: 'Neues To Do',
+            title: 'New to-do',
             done: false
         });
 
-        // emit an event that tells the lists component to update all to dos in
+        // emit an event that tells the lists component to update all to-dos in
         // all lists this could be done more efficiently by providing the _id of
         // the list that should be updated but for demonstration purposes, this
         // shall suffice

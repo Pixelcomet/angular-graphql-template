@@ -1,6 +1,6 @@
 <div id="to-do">
     <mat-checkbox [(ngModel)]="toDo.done" (ngModelChange)="updateToDo()"></mat-checkbox>
-    <input type="text" placeholder="To Do Name" [(ngModel)]="toDo.title" (ngModelChange)="updateToDo()">
+    <input type="text" placeholder="to-do Name" [(ngModel)]="toDo.title" (ngModelChange)="updateToDo()">
     <button mat-icon-button aria-label="Example icon-button with a heart icon">
         <mat-icon style="color: #aaaaaa" (click)="deleteToDo()">delete</mat-icon>
     </button>

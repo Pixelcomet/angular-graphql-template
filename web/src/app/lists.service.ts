@@ -91,18 +91,11 @@ export class ListsService {
         // match the return status and display a status update to the user
         switch (statusReturn.status) {
             case 'done':
-                this.globalsService.snackBarEventEmitter.emit(
-                    'Liste erstellt.'
-                );
+                this.globalsService.snackBarEventEmitter.emit('Created List');
                 return statusReturn.list;
-            case 'list_name_exists':
-                this.globalsService.snackBarEventEmitter.emit(
-                    'Eine Liste mit diesem Namen existiert bereits.'
-                );
-                return null;
             default:
                 this.globalsService.snackBarEventEmitter.emit(
-                    `Unbekannter Fehler: #${parseInt(
+                    `Unknown Error: #${parseInt(
                         Math.ceil(Math.random() * 10000000).toString(),
                         16
                     )}`
@@ -155,7 +148,7 @@ export class ListsService {
                 return statusReturn.list;
             case 'list_not_found':
                 this.globalsService.snackBarEventEmitter.emit(
-                    'Die Liste wurde in einer anderen Instanz gelöscht.'
+                    'List was deleted on server or in different instance'
                 );
                 this.globalsService.updateListsEmitter.emit();
                 return null;
@@ -163,7 +156,7 @@ export class ListsService {
                 return null;
             default:
                 this.globalsService.snackBarEventEmitter.emit(
-                    `Unbekannter Fehler: #${parseInt(
+                    `Unknown Error: #${parseInt(
                         Math.ceil(Math.random() * 10000000).toString(),
                         16
                     )}`
@@ -208,13 +201,11 @@ export class ListsService {
         // match the return status and display a status update to the user
         switch (statusReturn.status) {
             case 'done':
-                this.globalsService.snackBarEventEmitter.emit(
-                    'Liste gelöscht.'
-                );
+                this.globalsService.snackBarEventEmitter.emit('Deleted list');
                 return true;
             default:
                 this.globalsService.snackBarEventEmitter.emit(
-                    `Unbekannter Fehler: #${parseInt(
+                    `Unknown Error: #${parseInt(
                         Math.ceil(Math.random() * 10000000).toString(),
                         16
                     )}`

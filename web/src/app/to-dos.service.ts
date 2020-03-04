@@ -17,7 +17,7 @@ export class ToDosService {
     /**
      * @returns Promise
      *
-     * retrieves all to dos from the server
+     * retrieves all to-dos from the server
      */
     async toDos(): Promise<ToDo[]> {
         // this is how the returned object will look
@@ -43,7 +43,7 @@ export class ToDosService {
         // parse data and create a usable object
         const data = resp.data as Data;
 
-        // return the to dos
+        // return the to-dos
         return data.toDos;
     }
 
@@ -52,7 +52,7 @@ export class ToDosService {
      * @param  {ToDo} toDo
      * @returns Promise
      *
-     * creates a new to do on the server side
+     * creates a new to-do on the server side
      */
     async createToDo(inListWithId: string, toDo: ToDo): Promise<ToDo> {
         // this is how the returned object will look
@@ -88,19 +88,17 @@ export class ToDosService {
         // match the return status and display a status update to the user
         switch (statusReturn.status) {
             case 'done':
-                this.globalsService.snackBarEventEmitter.emit(
-                    'To Do erstellt.'
-                );
+                this.globalsService.snackBarEventEmitter.emit('Created to-do');
                 return statusReturn.toDo;
             case 'non_existing_list':
                 this.globalsService.snackBarEventEmitter.emit(
-                    'Diese Liste exsistiert nicht (mehr).'
+                    'List was deleted on server or in different instance'
                 );
                 this.globalsService.updateListsEmitter.emit();
                 return null;
             default:
                 this.globalsService.snackBarEventEmitter.emit(
-                    `Unbekannter Fehler: #${parseInt(
+                    `Unknown Error: #${parseInt(
                         Math.ceil(Math.random() * 10000000).toString(),
                         16
                     )}`
@@ -113,7 +111,7 @@ export class ToDosService {
      * @param  {ToDo} updatedToDo
      * @returns Promise
      *
-     * updates a to do (push to server)
+     * updates a to-do (push to server)
      */
     async updateToDo(updatedToDo: ToDo): Promise<ToDo> {
         // this is how the returned object will look
@@ -155,13 +153,13 @@ export class ToDosService {
                 return statusReturn.toDo;
             case 'non_existing_to_do':
                 this.globalsService.snackBarEventEmitter.emit(
-                    'Das To Do existiert nicht (mehr).'
+                    'to-do was deleted on server or in different instance.'
                 );
                 this.globalsService.updateListsEmitter.emit();
                 return null;
             default:
                 this.globalsService.snackBarEventEmitter.emit(
-                    `Unbekannter Fehler: #${parseInt(
+                    `Unknown Error: #${parseInt(
                         Math.ceil(Math.random() * 10000000).toString(),
                         16
                     )}`
@@ -174,7 +172,7 @@ export class ToDosService {
      * @param  {String} _id
      * @returns Promise
      *
-     * deletes a to do
+     * deletes a to-do
      */
     async deleteToDo(_id: String): Promise<boolean> {
         // this is how the returned object will look
@@ -206,13 +204,11 @@ export class ToDosService {
         // match the return status and display a status update to the user
         switch (statusReturn.status) {
             case 'done':
-                this.globalsService.snackBarEventEmitter.emit(
-                    'To Do gelöscht.'
-                );
+                this.globalsService.snackBarEventEmitter.emit('deleted to-do');
                 return true;
             default:
                 this.globalsService.snackBarEventEmitter.emit(
-                    `Unbekannter Fehler: #${parseInt(
+                    `Unknown Error: #${parseInt(
                         Math.ceil(Math.random() * 10000000).toString(),
                         16
                     )}`

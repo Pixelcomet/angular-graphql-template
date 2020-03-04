@@ -22,14 +22,14 @@ export class ListsComponent implements OnInit {
         // firstly, load all lists from the server
         await this.update();
 
-        // subscribe to the event emitter that emits an even whenever a to do is
+        // subscribe to the event emitter that emits an even whenever a to-do is
         // added or removed
         this.globalsService.updateToDosEmitter.subscribe(async () => {
-            // get the lists with their current to dos (updated by other
+            // get the lists with their current to-dos (updated by other
             // components/services)
             let updatedLists = await this.listsService.lists();
 
-            // for each lists, update the to dos, but don't update the lists
+            // for each lists, update the to-dos, but don't update the lists
             // themselves, this would cause all the accordion cards to close
             updatedLists.forEach((list, i) => {
                 this.lists[i].toDos = list.toDos;
@@ -50,7 +50,7 @@ export class ListsComponent implements OnInit {
 
     // create a new list on the server, then pull the changes
     async newList() {
-        await this.listsService.createList({ name: 'Neue Liste' });
+        await this.listsService.createList({ name: 'New List' });
         await this.update();
     }
 }

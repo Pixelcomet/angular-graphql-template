@@ -18,12 +18,12 @@ export class ToDoComponent {
         private globalsService: GlobalsService
     ) {}
 
-    // pushes changes on the local to do to the server
+    // pushes changes on the local to-do to the server
     updateToDo() {
         this.toDoService.updateToDo(this.toDo);
     }
 
-    // deletes this to do, then instructs the lists component to update all to
+    // deletes this to-do, then instructs the lists component to update all to
     // dos in all lists (pull from server)
     async deleteToDo() {
         await this.toDoService.deleteToDo(this.toDo._id);

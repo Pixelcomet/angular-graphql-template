@@ -1,4 +1,4 @@
-/** interface for to dos */
+/** interface for to-dos */
 export interface ToDo {
     /** mongodb id */
     _id?: string;
@@ -14,6 +14,6 @@ export interface ToDo {
 export interface ToDoStatusReturn {
     /** can include an error or "done" when everything is fine */
     status: string;
-    /** contains the to do, when no error was encountered */
+    /** contains the to-do, when no error was encountered */
     toDo: ToDo;
 }

@@ -9,7 +9,7 @@ export class GlobalsService {
     snackBarEventEmitter: EventEmitter<string>;
     // emitter that instructs the lists component to reload all lists
     updateListsEmitter: EventEmitter<void>;
-    // emitter that instructs the lists component to reload all to dos, but not
+    // emitter that instructs the lists component to reload all to-dos, but not
     // the lists containing them
     updateToDosEmitter: EventEmitter<void>;
 

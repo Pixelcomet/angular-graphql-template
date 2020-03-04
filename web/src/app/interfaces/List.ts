@@ -6,7 +6,7 @@ export interface List {
     _id?: string;
     /** list name */
     name: string;
-    /** array of to dos */
+    /** array of to-dos */
     toDos?: ToDo[];
 }
 
