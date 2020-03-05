@@ -57,7 +57,7 @@ Start in the `src/app/` directory, the non-default `.ts` files have comments, if
 -   run `ng build --prod` (may take a really long time)
 -   place the contents of the newly created `dist/website/` directory on your web root (`var/www/html/` on apache2)
 -   don't forget to configure the server in a way, that redirects all requests to the interface to `index.html` since this file includes the scripts that do all the routing
--   there should be a `.htaccess` in `dist/`, it can be used to redirect on an apache2 server (for nginx google `nginx angular` 😅)
+-   there should be a `.htaccess` in `dist/`, it can be used to redirect on an apache2 server (for nginx google: `nginx angular` 😅)
 
 ## Frequent sources of errors
 
